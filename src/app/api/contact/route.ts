@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Server misconfigured" }, { status: 500 });
   }
 
-  const resend = new Resend(apiKey);
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const body: unknown = await req.json();
   if (!isPayload(body)) {
