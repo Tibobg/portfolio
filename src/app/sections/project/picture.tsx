@@ -229,7 +229,7 @@ export default function PhotoSection() {
       <div className="items-stretch px-4">
         <GlassBlock className="mt-12 md:mt-20 p-3 md:p-5 flex flex-col items-stretch gap-4">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">PHOTO</h2>
-          <Link href="https://www.flickr.com/photos/201431383@N02" target="_blank" className="mt-auto self-center pt-3">
+          <Link href="https://flic.kr/s/aHBqjCyfCd" target="_blank" className="mt-auto self-center pt-3">
               <button className="btn-cv btn-cv--sweep ">
                 <span>GALERIE</span>
               </button>

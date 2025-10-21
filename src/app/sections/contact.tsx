@@ -27,7 +27,7 @@ export default function ContactSection() {
   }, []);
   function validateEmail(value: string) {
     if (!value) return "L'adresse e-mail est requise.";
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // simple & robuste
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value) ? "" : "Format d’adresse e-mail invalide.";
   }
 
@@ -66,7 +66,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden ${isMedium ? "py-60" : "py-24"}`}
+      className={`relative overflow-hidden ${isMedium ? "py-60" : "py-30"}`}
     >
       <div className="mx-auto max-w-5xl px-4">
         {/* Heading ... */}
@@ -124,10 +124,15 @@ export default function ContactSection() {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
-                  onBlur={() => setEmailError(validateEmail(email))}
+                  onChange={(e) => {
+                    const v = e.target.value.replace(/\s+/g, ""); // trim live (évite espaces)
+                    setEmail(v);
+                    if (emailError) setEmailError("");
+                  }}
+                  onBlur={() => setEmailError(validateEmail(email.trim()))}
                   placeholder="vous@exemple.com"
-                  pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+                  autoComplete="email"
+                  inputMode="email"
                   aria-invalid={!!emailError}
                   aria-describedby="email-help"
                   className={`h-11.5 rounded-xl bg-white/5 text-white placeholder-white/40 border px-3 py-2 outline-none ring-1 ring-inset
