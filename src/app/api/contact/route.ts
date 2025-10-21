@@ -14,7 +14,7 @@ function isPayload(x: unknown): x is ContactPayload {
 
 export async function POST(req: Request) {
   const apiKey = process.env.RESEND_API_KEY;
-  const FROM = process.env.RESEND_FROM ?? "Portfolio <onboarding@resend.dev>";
+  const FROM = process.env.RESEND_FROM ?? "Portfolio <contact@thibaultcauche.com>";
   const TO = process.env.CONTACT_TO ?? "thibault.cauche@gmail.com";
 
   if (!apiKey) {
