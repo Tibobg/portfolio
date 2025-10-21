@@ -156,56 +156,6 @@ export default function SkillsSection() {
   );
 }
 
-function AutoFitText({
-  children,
-  max = 18,   // taille max en px
-  min = 11,   // taille mini en px
-  step = 0.5, // pas de réduction
-  className = "",
-}: {
-  children: React.ReactNode;
-  max?: number;
-  min?: number;
-  step?: number;
-  className?: string;
-}) {
-  const ref = React.useRef<HTMLSpanElement>(null);
-
-  const fit = React.useCallback(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    // On force une ligne
-    el.style.whiteSpace = "nowrap";
-
-    // On repart du max à chaque mesure
-    let size = max;
-    el.style.fontSize = `${size}px`;
-
-    const parent = el.parentElement as HTMLElement | null;
-    const limit = parent?.clientWidth ?? el.clientWidth;
-
-    // Réduit tant que ça dépasse et qu'on n'a pas atteint min
-    while (size > min && el.scrollWidth > limit) {
-      size -= step;
-      el.style.fontSize = `${size}px`;
-    }
-  }, [max, min, step]);
-
-  React.useEffect(() => {
-    fit();
-    const ro = new ResizeObserver(fit);
-    const parent = ref.current?.parentElement;
-    if (parent) ro.observe(parent);
-    return () => ro.disconnect();
-  }, [fit, children]);
-
-  return (
-    <span ref={ref} className={className} style={{ display: "block" }}>
-      {children}
-    </span>
-  );
-}
 function SkillName({
   text,
   max = 18,

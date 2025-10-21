@@ -24,9 +24,6 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   curveAmount = 400,
   direction = 'left',
   interactive = true,
-  minFontPx = 14,
-  maxFontPx = 28,
-  vwFactor = 3.2,
 }) => {
   const text = useMemo(() => {
     const hasTrailing = /\s|\u00A0$/.test(marqueeText);
@@ -153,8 +150,6 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
     dragRef.current = false;
     dirRef.current = velRef.current > 0 ? 'right' : 'left';
   };
-
-  const cursorStyle = interactive ? (dragRef.current ? 'grabbing' : 'grab') : 'auto';
 
   return (
     <div

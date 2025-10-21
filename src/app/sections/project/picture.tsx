@@ -77,9 +77,11 @@ function PhotoPile({ photos, className = "" }: { photos: string[]; className?: s
     tick();
     intervalRef.current = setInterval(tick, 2500);
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); intervalRef.current = null; };
-  }, [photos, vw, vh]);
+  }, [photos, vw, vh, isMobile]);
 
-  const center = useMemo(() => ({ x: vw / 2 - POLAROID_W / 2, y: Math.min(vh * 0.58, 480) }), [vw, vh]);
+  const center = useMemo(
+    () => ({ x: vw / 2 - POLAROID_W / 2, y: Math.min(vh * 0.58, 480) }),
+    [vw, vh, POLAROID_W]);
 
   const onArrive = (f: FlyingPhoto) => {
     setPiled((curr) => {
@@ -129,7 +131,7 @@ function PhotoPile({ photos, className = "" }: { photos: string[]; className?: s
         });
       }
       return items;
-    }, [photos, vw, vh]);
+    }, [photos, vw, vh, BACKDROP_COUNT, BACKDROP_W, isMobile]);
 
   return (
     <div className={`relative -mx-[calc((100vw-100%)/2)] w-screen ${className}`}>
@@ -246,7 +248,7 @@ export default function PhotoSection() {
             Je participe également à certains événements en tant que photographe, ce qui me permet de découvrir de nouveaux contextes, de nouvelles personnes et d’enrichir ma pratique à travers des expériences variées.
           </p>
           <p className="mt-4 text-foreground/80 leading-relaxed">
-            Légèrement philosophe dans certains moments, l'idée que mes photos prennent le dessus sur mes mots me faisait très envie, car parfois des photos valent mieux que mille mots. Ce texte n'est toutefois pas sensé être lu, vous êtes un sacré filou d'avoir pu y accéder mais merci d'être là en tout cas... Voilà voilà... Elles sont bien mes photos hein? 
+            Légèrement philosophe dans certains moments, l’idée que mes photos prennent le dessus sur mes mots me faisait très envie, car parfois des photos valent mieux que mille mots. Ce texte n'est toutefois pas sensé être lu, vous êtes un sacré filou d'avoir pu y accéder mais merci d'être là en tout cas... Voilà voilà... Elles sont bien mes photos hein? 
           </p>
         </GlassBlock>
       </div>

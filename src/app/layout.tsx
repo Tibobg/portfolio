@@ -3,10 +3,8 @@ import "./styles/cv-button.css";
 import type { Metadata } from "next";
 import Nav from "@/components/nav";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Amiko } from "next/font/google";
 import GlobalBlobs from "@/components/GlobalBlobs";
 
-const amiko = Amiko({ subsets: ["latin"], weight: ["400","600","700"] });
 
 export const viewport = {
   width: "device-width",
