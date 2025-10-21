@@ -1,0 +1,5 @@
+/* app/styles/globals.css */
+@import "tailwindcss";
+html, body { overflow-x: hidden; }
+.scroll-container { overflow-x: hidden; }
+html {scroll-behavior: smooth;}

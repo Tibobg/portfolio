@@ -1,0 +1,54 @@
+/* Bouton CV – base: pill translucide, texte clair */
+.btn-cv{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 20px;            /* ≈ px-5 py-3 */
+  border-radius: 9999px;
+  color: #EAF0FF;                /* texte clair */
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  overflow: hidden;
+  transition: color .25s ease, border-color .25s ease, background .25s ease, transform .15s ease;
+}
+
+/* Calque dégradé qui apparaît au hover */
+.btn-cv::before{
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #F6B266, #B684FF, #7BD7FF);
+  opacity: 0;                    /* invisible par défaut */
+  transform: scale(1.06);        /* léger dépassement pour éviter les bords visibles */
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+
+/* Texte au-dessus du calque */
+.btn-cv > span{ position: relative; z-index: 1; font-weight: 600; }
+
+/* Hover = remplissage dégradé + texte sombre */
+.btn-cv:hover::before{ opacity: 1; }
+.btn-cv:hover{
+  color: #0B0F1A;                /* texte noir */
+  border-color: transparent;
+  background: transparent;       /* on laisse le dégradé du ::before */
+  transform: translateY(-1px);
+}
+
+/* --- Variante: dégradé animé qui “balaye” (facultatif) --- */
+.btn-cv--sweep::before{
+  background: linear-gradient(90deg, #F6B266, #B684FF, #7BD7FF, #F6B266);
+  background-size: 200% 100%;
+}
+.btn-cv--sweep:hover::before{
+  opacity: 1;
+  animation: cv-sweep 3s linear infinite;
+}
+@keyframes cv-sweep{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 200% 50%; }
+}

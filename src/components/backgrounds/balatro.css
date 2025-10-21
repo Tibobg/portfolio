@@ -1,0 +1,16 @@
+/* couvre tout le parent et reste "sous" le contenu */
+.balatro-container {
+  position: absolute;
+  inset: 0;        /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;  /* pour laisser les boutons cliquables */
+  z-index: 0;           /* contenu au-dessus avec z-index > 0 */
+}
+
+/* le canvas doit remplir */
+.balatro-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,95 @@
+/* -------- Container (garde l'animation autour) -------- */
+.star-border-container {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 9999px; /* pilule */
+  --sb-bubble: linear-gradient(90deg,#FF5ACD,#3BD9FF); /* couleur/gradient de la bulle */
+  --sb-bubble-scale: 3;
+}
+
+.star-border-container,
+.star-border-container::after{
+  font: inherit;             /* taille, graisse, famille */
+  letter-spacing: inherit;
+}
+
+/* Les 2 auréoles animées (inchangé sauf z-index) */
+.border-gradient-bottom,
+.border-gradient-top {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.7;
+  border-radius: 50%;
+  z-index: 0;               /* sous le contenu */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.border-gradient-bottom { bottom: -11px; right: -250%; animation-name: star-movement-bottom; }
+.border-gradient-top    { top:   -10px;  left:  -250%; animation-name: star-movement-top;  }
+
+/* -------- Le bouton lui-même (style pilule blanche) -------- */
+.inner-content{
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 12px 18px;
+  border-radius: inherit;
+  background: #fff;
+  color: #0b0f1a;
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 6px 5px rgba(0,0,0,.18);
+  transition: transform .15s ease, opacity .2s ease;
+  text-align: center;
+  font-size: inherit;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.inner-content > * {
+  position: relative;
+  z-index: 2;
+}
+.inner-content::before{
+  content:"";
+  position:absolute;
+  inset:1px;
+  margin:auto;
+  width:50px;
+  height:50px;
+  border-radius:inherit;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  will-change: transform;
+  z-index:0;                         /* sous le texte, au-dessus des auréoles */
+  background: var(--sb-bubble, linear-gradient(90deg,#FF5ACD,#3BD9FF));
+  transition: transform .45s cubic-bezier(0.23,1,0.32,1);
+}
+.star-border-container:hover .inner-content > *{
+  transition: opacity .12s ease;
+}
+.star-border-container:hover .inner-content::before{
+  transform: scale(var(--sb-bubble-scale, 3));
+}
+.star-border-container:hover .inner-content{ transform: translateY(-1px); }
+.star-border-container:active .inner-content{ transform: translateY(0); opacity:.95; }
+.star-border-container:hover .inner-content,
+.star-border-container:hover .inner-content > * {
+  color: #fff;
+  transition: color .18s ease;
+}
+/* -------- Animations (inchangées) -------- */
+@keyframes star-movement-bottom {
+  0%   { transform: translate(0%, 0%);   opacity: 1; }
+  100% { transform: translate(-100%, 0%); opacity: 0; }
+}
+@keyframes star-movement-top {
+  0%   { transform: translate(0%, 0%);   opacity: 1; }
+  100% { transform: translate(100%, 0%);  opacity: 0; }
+}
