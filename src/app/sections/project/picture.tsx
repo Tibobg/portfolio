@@ -248,7 +248,7 @@ export default function PhotoSection() {
             Je participe également à certains événements en tant que photographe, ce qui me permet de découvrir de nouveaux contextes, de nouvelles personnes et d’enrichir ma pratique à travers des expériences variées.
           </p>
           <p className="mt-4 text-foreground/80 leading-relaxed">
-            Légèrement philosophe dans certains moments, l’idée que mes photos prennent le dessus sur mes mots me faisait très envie, car parfois des photos valent mieux que mille mots. Ce texte n'est toutefois pas sensé être lu, vous êtes un sacré filou d'avoir pu y accéder mais merci d'être là en tout cas... Voilà voilà... Elles sont bien mes photos hein? 
+            Légèrement philosophe dans certains moments, l’idée que mes photos prennent le dessus sur mes mots me faisait très envie, car parfois des photos valent mieux que mille mots. Ce texte n’est toutefois pas sensé être lu, vous êtes un sacré filou d’avoir pu y accéder mais merci d’être là en tout cas... Voilà voilà... Elles sont bien mes photos hein? 
           </p>
         </GlassBlock>
       </div>
