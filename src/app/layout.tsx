@@ -5,7 +5,6 @@ import Nav from "@/components/nav";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Amiko } from "next/font/google";
 import GlobalBlobs from "@/components/GlobalBlobs";
-import Script from "next/script";
 
 const amiko = Amiko({ subsets: ["latin"], weight: ["400","600","700"] });
 

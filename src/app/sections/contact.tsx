@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Send, Linkedin, MessageCircle, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import {Linkedin, MessageCircle, CheckCircle2, AlertCircle} from "lucide-react";
 import GlassBlock from "@/components/GlassBlock";
 import { motion, AnimatePresence } from "framer-motion";
 

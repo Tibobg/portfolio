@@ -171,31 +171,30 @@ export default function Balatro({
     });
     const mesh = new Mesh(gl, { geometry, program });
 
-    function doSetSize() {
-      const width  = container.clientWidth  || container.offsetWidth  || 1;
-      const height = container.clientHeight || container.offsetHeight || 1;
-      renderer.setSize(width, height);
-      (program as any).uniforms.iResolution.value = [
-        gl.drawingBufferWidth,
-        gl.drawingBufferHeight,
-        gl.drawingBufferWidth / Math.max(1, gl.drawingBufferHeight),
-      ];
-    }
+  type Uniforms = Record<string, { value: unknown }>;
+  const uniforms = (program as unknown as { uniforms: Uniforms }).uniforms;
+
+  function doSetSize() {
+    const width  = container.clientWidth  || container.offsetWidth  || 1;
+    const height = container.clientHeight || container.offsetHeight || 1;
+    renderer.setSize(width, height);
+    uniforms.iResolution.value = [
+      gl.drawingBufferWidth,
+      gl.drawingBufferHeight,
+      gl.drawingBufferWidth / Math.max(1, gl.drawingBufferHeight),
+    ];
+  }
     // taille dès maintenant
     doSetSize();
 
     // ResizeObserver → responsive immédiat
-    const RO = (window as any).ResizeObserver as
-      | (new (cb: (entries: any[]) => void) => ResizeObserver)
-      | undefined;
-    const ro = RO ? new RO(() => doSetSize()) : null;
-    ro?.observe(container);
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(() => doSetSize()) : null;
 
     // 1ʳᵉ frame → on révèle le canvas
-    let rafId = 0;
+    let rafId: number = 0;
     const update = (time: number) => {
       rafId = requestAnimationFrame(update);
-      (program as any).uniforms.iTime.value = time * 0.001;
+      uniforms.iTime.value = time * 0.001;
       renderer.render({ scene: mesh });
       if (gl.canvas.style.opacity !== "1") gl.canvas.style.opacity = "1";
     };
@@ -207,7 +206,7 @@ export default function Balatro({
       const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1 - (e.clientY - rect.top) / rect.height;
-      (program as any).uniforms.uMouse.value = [x, y];
+      uniforms.uMouse.value = [x, y];
     }
     container.addEventListener("mousemove", handleMouseMove);
 

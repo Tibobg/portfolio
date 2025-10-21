@@ -109,7 +109,7 @@ const fadeUp: Variants = {
   },
 };
 
-function TimelineItem({ entry, index }: { entry: Entry; index: number }) {
+function TimelineItem({ entry}: { entry: Entry; index: number }) {
   return (
     <motion.li
       variants={fadeUp}

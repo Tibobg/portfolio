@@ -32,11 +32,9 @@ export async function POST(req: Request) {
       replyTo: email || undefined,
     });
 
-    console.log("Resend OK:", result);
-    return NextResponse.json({ ok: true });
-  } catch (e: any) {
-    console.error("Resend ERROR:", e);
-    // Optionnel: renvoyer l’erreur pour debug rapide (à retirer en prod)
-    return NextResponse.json({ ok: false, error: e?.message ?? "send_failed" }, { status: 500 });
+    return NextResponse.json({ ok: true, id: (result as { id?: string }).id });
+  } catch (e: unknown) {
+    const msg = e && typeof e === "object" && "message" in e ? String((e as { message: unknown }).message) : "send_failed";
+    return NextResponse.json({ ok: false, error: msg }, { status: 500 });
   }
 }
