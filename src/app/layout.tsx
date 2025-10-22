@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       { x: "88%", y: "60%",  w: "58vmax", color: "#f43f5e", opacity: 0.24, blur: "80px", speed: "26s" },
     ]}
   />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider>
           <Nav />
           {children}
         </ThemeProvider>
