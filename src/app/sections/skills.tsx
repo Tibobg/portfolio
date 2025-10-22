@@ -6,7 +6,7 @@ import { motion, AnimatePresence, LayoutGroup, type Variants } from "framer-moti
 import { Icon } from "@iconify/react";
 import {
   CircleCheck, Wrench, Code2, Boxes,
-  Workflow, Infinity, Cloud, ShieldCheck,
+  Infinity, Cloud, ShieldCheck,
   PenTool, CircuitBoard, Network,
   GitBranch, Eye, TestTubes, ClipboardList
 } from "lucide-react";

@@ -21,17 +21,17 @@ interface BalatroProps {
 }
 
 function hexToVec4(hex: string): [number, number, number, number] {
-  const hexStr = hex.replace("#", "");
+  const h = hex.replace("#", "");
   let r = 0, g = 0, b = 0, a = 1;
-  if (hexStr.length === 6) {
-    r = parseInt(hexStr.slice(0, 2), 16) / 255;
-    g = parseInt(hexStr.slice(2, 4), 16) / 255;
-    b = parseInt(hexStr.slice(4, 6), 16) / 255;
-  } else if (hexStr.length === 8) {
-    r = parseInt(hexStr.slice(0, 2), 16) / 255;
-    g = parseInt(hexStr.slice(2, 4), 16) / 255;
-    b = parseInt(hexStr.slice(4, 6), 16) / 255;
-    a = parseInt(hexStr.slice(6, 8), 16) / 255;
+  if (h.length === 6) {
+    r = parseInt(h.slice(0, 2), 16) / 255;
+    g = parseInt(h.slice(2, 4), 16) / 255;
+    b = parseInt(h.slice(4, 6), 16) / 255;
+  } else if (h.length === 8) {
+    r = parseInt(h.slice(0, 2), 16) / 255;
+    g = parseInt(h.slice(2, 4), 16) / 255;
+    b = parseInt(h.slice(4, 6), 16) / 255;
+    a = parseInt(h.slice(6, 8), 16) / 255;
   }
   return [r, g, b, a];
 }
@@ -70,24 +70,18 @@ vec4 effect(vec2 screenSize, vec2 screen_coords) {
   float pixel_size = length(screenSize.xy) / uPixelFilter;
   vec2 uv = (floor(screen_coords.xy * (1.0 / pixel_size)) * pixel_size - 0.5 * screenSize.xy) / length(screenSize.xy) - uOffset;
   float uv_len = length(uv);
-
   float speed = (uSpinRotation * uSpinEase * 0.2);
   if(uIsRotate){ speed = iTime * speed; }
   speed += 302.2;
-
   float mouseInfluence = (uMouse.x * 2.0 - 1.0);
   speed += mouseInfluence * 0.1;
-
   float new_pixel_angle = atan(uv.y, uv.x) + speed - uSpinEase * 20.0 * (uSpinAmount * uv_len + (1.0 - uSpinAmount));
   vec2 mid = (screenSize.xy / length(screenSize.xy)) / 2.0;
   uv = (vec2(uv_len * cos(new_pixel_angle) + mid.x, uv_len * sin(new_pixel_angle) + mid.y) - mid);
-
   uv *= 30.0;
   float baseSpeed = iTime * uSpinSpeed;
   speed = baseSpeed + mouseInfluence * 2.0;
-
   vec2 uv2 = vec2(uv.x + uv.y);
-
   for(int i = 0; i < 5; i++) {
     uv2 += sin(max(uv.x, uv.y)) + uv;
     uv += 0.5 * vec2(
@@ -96,7 +90,6 @@ vec4 effect(vec2 screenSize, vec2 screen_coords) {
     );
     uv -= cos(uv.x + uv.y) - sin(uv.x * 0.711 - uv.y);
   }
-
   float contrast_mod = (0.25 * uContrast + 0.5 * uSpinAmount + 1.2);
   float paint_res = min(2.0, max(0.0, length(uv) * 0.035 * contrast_mod));
   float c1p = max(0.0, 1.0 - contrast_mod * abs(1.0 - paint_res));
@@ -105,7 +98,6 @@ vec4 effect(vec2 screenSize, vec2 screen_coords) {
   float light = (uLighting - 0.2) * max(c1p * 5.0 - 4.0, 0.0) + uLighting * max(c2p * 5.0 - 4.0, 0.0);
   return (0.3 / uContrast) * uColor1 + (1.0 - 0.3 / uContrast) * (uColor1 * c1p + uColor2 * c2p + vec4(c3p * uColor3.rgb, c3p * uColor1.a)) + light;
 }
-
 void main() {
   vec2 uv = vUv * iResolution.xy;
   gl_FragColor = effect(iResolution.xy, uv);
@@ -133,20 +125,22 @@ export default function Balatro({
     if (!containerRef.current) return;
     const container = containerRef.current;
 
-    // DPR plus bas sur mobile pour accélérer la 1ʳᵉ frame
-    const isSmall = window.matchMedia("(max-width: 640px)").matches;
-    const dpr = Math.min(window.devicePixelRatio || 1, isSmall ? 1.25 : 1.75);
+    const pickDpr = () => {
+      const isSmall = window.matchMedia("(max-width: 640px)").matches;
+      return Math.min(window.devicePixelRatio || 1, isSmall ? 1.25 : 1.75);
+    };
 
-    const renderer = new Renderer({ dpr, alpha: true, antialias: true });
+    const renderer = new Renderer({ dpr: pickDpr(), alpha: true, antialias: true });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
 
-    // append immédiatement + fade-in
+    // Canvas visible & always 100%
     container.appendChild(gl.canvas);
     gl.canvas.style.opacity = "0";
     gl.canvas.style.transition = "opacity .25s ease";
+    gl.canvas.style.width = "100%";
+    gl.canvas.style.height = "100%";
 
-    // === Création program/mesh ===
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
       vertex: vertexShader,
@@ -171,27 +165,54 @@ export default function Balatro({
     });
     const mesh = new Mesh(gl, { geometry, program });
 
-  type Uniforms = Record<string, { value: unknown }>;
-  const uniforms = (program as unknown as { uniforms: Uniforms }).uniforms;
+    type Uniforms = Record<string, { value: unknown }>;
+    const uniforms = (program as unknown as { uniforms: Uniforms }).uniforms;
 
-  function doSetSize() {
-    const width  = container.clientWidth  || container.offsetWidth  || 1;
-    const height = container.clientHeight || container.offsetHeight || 1;
-    renderer.setSize(width, height);
-    uniforms.iResolution.value = [
-      gl.drawingBufferWidth,
-      gl.drawingBufferHeight,
-      gl.drawingBufferWidth / Math.max(1, gl.drawingBufferHeight),
-    ];
-  }
-    // taille dès maintenant
-    doSetSize();
+    let lastDpr = renderer.dpr;
 
-    // ResizeObserver → responsive immédiat
-    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(() => doSetSize()) : null;
+    const setSize = () => {
+      // DPR peut changer avec le zoom / écran
+      const dpr = pickDpr();
+      if (dpr !== lastDpr) {
+        renderer.dpr = dpr;
+        lastDpr = dpr;
+      }
 
-    // 1ʳᵉ frame → on révèle le canvas
-    let rafId: number = 0;
+      const rect = container.getBoundingClientRect();
+      const width = Math.max(1, Math.round(rect.width));
+      const height = Math.max(1, Math.round(rect.height));
+
+      // Si on attrape un layout transitoire (0 px), re-essaie à la prochaine frame
+      if (width === 1 && height === 1 && (rect.width === 0 || rect.height === 0)) {
+        requestAnimationFrame(setSize);
+        return;
+      }
+
+      renderer.setSize(width, height);
+      uniforms.iResolution.value = [
+        gl.drawingBufferWidth,
+        gl.drawingBufferHeight,
+        gl.drawingBufferWidth / Math.max(1, gl.drawingBufferHeight),
+      ];
+    };
+
+    // Taille initiale
+    setSize();
+
+    // Observers + fallback window.resize
+    const roSelf = typeof ResizeObserver !== "undefined" ? new ResizeObserver(setSize) : null;
+    const roParent =
+      typeof ResizeObserver !== "undefined" && container.parentElement
+        ? new ResizeObserver(setSize)
+        : null;
+
+    roSelf?.observe(container);
+    if (container.parentElement) roParent?.observe(container.parentElement);
+    const onWinResize = () => setSize();
+    window.addEventListener("resize", onWinResize);
+
+    // Loop
+    let rafId = 0;
     const update = (time: number) => {
       rafId = requestAnimationFrame(update);
       uniforms.iTime.value = time * 0.001;
@@ -200,7 +221,7 @@ export default function Balatro({
     };
     rafId = requestAnimationFrame(update);
 
-    // Interaction souris
+    // Mouse
     function handleMouseMove(e: MouseEvent) {
       if (!mouseInteraction) return;
       const rect = container.getBoundingClientRect();
@@ -213,7 +234,9 @@ export default function Balatro({
     return () => {
       cancelAnimationFrame(rafId);
       container.removeEventListener("mousemove", handleMouseMove);
-      ro?.disconnect?.();
+      window.removeEventListener("resize", onWinResize);
+      roSelf?.disconnect();
+      roParent?.disconnect();
       try { container.removeChild(gl.canvas); } catch {}
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
@@ -233,6 +256,5 @@ export default function Balatro({
     mouseInteraction,
   ]);
 
-  // occupe l’espace immédiatement (placeholder bg dans balatro.css)
   return <div ref={containerRef} className="balatro-container absolute inset-0 h-full w-full" />;
 }
