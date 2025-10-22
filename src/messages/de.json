@@ -1,0 +1,248 @@
+{
+  "Nav": {
+    "home": "Start",
+    "about": "Über mich",
+    "parcours": "Werdegang",
+    "projects": "Projekte",
+    "skills": "Kompetenzen",
+    "contact": "Kontakt"
+  },
+  "Header": {
+    "homeAria": "Zur Startseite",
+    "signatureAlt": "Signatur",
+    "cvTitle": "Lebenslauf",
+    "cvAria": "Lebenslauf in neuem Tab öffnen",
+    "cvShort": "CV",
+    "cvLong": "Lebenslauf",
+    "contact": "Kontakt aufnehmen"
+  },
+  "Hero": {
+    "name": "Thibault Cauche",
+    "title": "CHEWLIN",
+    "ctaProjects": "Meine Projekte ansehen",
+    "ctaContact": "Kontakt aufnehmen"
+  },
+  "About": {
+    "title": "ÜBER MICH",
+    "tagline": "Neugieriger Full-Stack-Entwickler mit Designer-Seele, der elegante und intuitive Oberflächen zum Leben erweckt"
+  },
+  "Timeline": {
+    "title": "WERDEGANG",
+    "proLabel": "Beruf",
+    "studiesLabel": "Studium",
+    "workEntries": [
+      {
+        "title": "Werkstudent Softwareentwicklung (Ausbildung)",
+        "place": "IMH Niort",
+        "years": "2023 – 2025",
+        "details": [
+          "Entwicklung modularer Anwendungen auf Basis einer Microservices-Architektur",
+          "Aufbau von Dashboards zur Überwachung und Analyse der Systemleistung",
+          "Automatisierte Deployments und Einrichtung von CI/CD-Pipelines"
+        ]
+      },
+      {
+        "title": "Werkstudent Frontend-Entwicklung / Design",
+        "place": "LENRA La Rochelle",
+        "years": "2021 – 2022",
+        "details": [
+          "Konzeption und Entwicklung eines kompletten E-Commerce-Webauftritts – von Mockups bis Produktion",
+          "Gestaltung moderner, intuitiver Oberflächen in Zusammenarbeit mit dem Design-Team",
+          "Optimierung der User Experience und Go-Live des Projekts"
+        ]
+      },
+      {
+        "title": "Befristete Anstellung – Netzwerk & IT-Architektur",
+        "place": "Léa Nature Périgny",
+        "years": "Juli – August 2021",
+        "details": [
+          "Wartung und Weiterentwicklung interner Tools in verteilter Umgebung",
+          "Einrichtung von technischem Monitoring und zentralisiertem Logging",
+          "Automatisierte Deployments und Überwachung per CI/CD-Pipelines"
+        ]
+      },
+      {
+        "title": "Praktikant Anwendungsentwicklung",
+        "place": "Léa Nature Périgny",
+        "years": "Mai – Juli 2021",
+        "details": [
+          "Weiterentwicklung einer internen Anwendung durch neue Seiten",
+          "Mitarbeit in einem erfahrenen Engineering-Team an Business-Features",
+          "Erste praktische Erfahrung mit Microservices und CI/CD-Tools"
+        ]
+      }
+    ],
+    "educationEntries": [
+      {
+        "title": "Master Webentwicklung",
+        "place": "Ynov Bordeaux",
+        "years": "2023 – 2025",
+        "details": [
+          "Expertise in Webentwicklung, Softwarearchitektur und Cloud",
+          "Continuous Integration & Delivery (CI/CD) und DevOps-Praktiken",
+          "Moderne Apps mit klarer Trennung von Front/Back und Cloud-Services"
+        ]
+      },
+      {
+        "title": "M1 – Softwarearchitektur & Informationssysteme",
+        "place": "3iL Limoges",
+        "years": "2022",
+        "details": [
+          "Vertiefung in Softwarearchitekturen und Informationssysteme",
+          "DevOps-Praktiken, CI/CD und automatisierte Deployments",
+          "UML-Modellierung und Projektmanagement"
+        ]
+      },
+      {
+        "title": "Bachelor Software- & Webentwicklung",
+        "place": "3iL Limoges",
+        "years": "2021 – 2022",
+        "details": [
+          "Full-Stack-Entwicklung und barrierearme UI-Gestaltung",
+          "Gesicherte APIs und relationale Datenbanken",
+          "Agile Methoden und Versionskontrolle (Git)"
+        ]
+      },
+      {
+        "title": "Integriertes Vorstudium (Ingenieurhochschule)",
+        "place": "3iL Limoges",
+        "years": "2018 – 2021",
+        "details": [
+          "Fundamente in Algorithmen, C, Java, Python und Web",
+          "Netzwerke, OOP und Software-Design",
+          "Praxisnahe Projekte und Praktika"
+        ]
+      }
+    ]
+  },
+  "Skills": {
+    "title": "FÄHIGKEITEN",
+    "categories": {
+      "languages": "Sprachen",
+      "frameworks": "Frameworks",
+      "tools": "Tools",
+      "other": "Sonstiges"
+    },
+    "levels": {
+      "beginner": "Einsteiger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Erfahren",
+      "expert": "Experte"
+    },
+    "ctaGithub": "Mein GitHub ansehen",
+    "items": {
+      "languages": [
+        { "name": "TypeScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", "level": "advanced" },
+        { "name": "JavaScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", "level": "intermediate" },
+        { "name": "HTML5", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", "level": "advanced" },
+        { "name": "CSS3", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", "level": "advanced" },
+        { "name": "SQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", "level": "intermediate" },
+        { "name": "C#", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", "level": "intermediate" },
+        { "name": "Dart", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg", "level": "advanced" },
+        { "name": "JSON", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg", "level": "intermediate" },
+        { "name": "Bash", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg", "level": "advanced" }
+      ],
+      "frameworks": [
+        { "name": "React", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", "level": "advanced" },
+        { "name": "Next.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", "level": "intermediate" },
+        { "name": "Nest.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", "level": "intermediate" },
+        { "name": "React Native", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", "level": "intermediate" },
+        { "name": "Tailwind CSS", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", "level": "advanced" },
+        { "name": "Flutter", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", "level": "advanced" },
+        { "name": "Prisma", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg", "level": "intermediate" },
+        { "name": "Vite", "level": "advanced" },
+        { "name": "Vue.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", "level": "intermediate" }
+      ],
+      "tools": [
+        { "name": "GitHub", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", "level": "advanced" },
+        { "name": "VS Code", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", "level": "advanced" },
+        { "name": "Docker", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", "level": "intermediate" },
+        { "name": "Postman", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", "level": "intermediate" },
+        { "name": "Figma", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", "level": "advanced" },
+        { "name": "Elasticsearch", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg", "level": "intermediate" },
+        { "name": "Notion", "level": "advanced" },
+        { "name": "Trello", "level": "advanced" },
+        { "name": "Jira", "level": "intermediate" },
+        { "name": "pnpm", "level": "advanced" },
+        { "name": "npm", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg", "level": "advanced" },
+        { "name": "Visual Studio", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg", "level": "intermediate" }
+      ],
+      "other": [
+        { "name": "Agile/Scrum-Methoden", "tag": "agile", "level": "intermediate" },
+        { "name": "UI/UX Design", "tag": "uiux", "level": "advanced" },
+        { "name": "DevOps", "tag": "devops", "level": "intermediate" },
+        { "name": "Softwarearchitektur", "tag": "architecture", "level": "intermediate" },
+        { "name": "Microservices", "tag": "microservices", "level": "intermediate" },
+        { "name": "REST-APIs", "tag": "api", "level": "intermediate" },
+        { "name": "CI/CD", "tag": "cicd", "level": "intermediate" },
+        { "name": "Sicherheit & Authentifizierung", "tag": "security", "level": "advanced" },
+        { "name": "SEO & Barrierefreiheit", "tag": "a11y_seo", "level": "advanced" },
+        { "name": "Unit- & automatisierte Tests", "tag": "testing", "level": "advanced" },
+        { "name": "Projektmanagement", "tag": "pm", "level": "advanced" }
+      ]
+    }
+  },
+  "Projects": {
+    "Intro": {
+      "title": "PROJEKTE",
+      "p1": "Jedes Projekt ist ein neues Abenteuer – ein Experimentierfeld, auf dem ich Technik, Design und Kreativität verbinde.",
+      "p2": "Ob Webentwicklung, Objektdesign oder visuelle Gestaltung: Ich suche nach Wegen, Ideen zum Leben zu erwecken. Diese Projekte sind für mich ein konkreter Weg zu lernen, zu wachsen und Grenzen zu verschieben.",
+      "p3": "Hier findest du, was mich begeistert: von einer mobilen App zum Verkauf und zur Personalisierung dekorativer Skateboards, über handgefertigte Deko-Decks bis hin zu Fotografie mit Drohnenvideo.",
+      "p4": "Jedes Projekt spiegelt meine Vision wider: sinnvoll schaffen, durch Tun lernen und besondere Erfahrungen teilen."
+    },
+    "App": {
+      "title": "APPLIKATION",
+      "p1": "Komplett mit Flutter entwickelt, bietet diese mobile App eine einfache, ästhetische und interaktive Erfahrung rund um die Gestaltung dekorativer Skateboards.",
+      "p2": "Nutzer können ein Konto anlegen, meine Werke durchstöbern, verfügbare Modelle kaufen oder ein eigenes Board entwerfen – mit frei wählbarer Deckform und Optik.",
+      "p3": "Außerdem gibt es Lieferdatenauswahl und Direktnachrichten für persönlichen Kontakt, um Bestellungen zu verfolgen oder anzupassen.",
+      "p4": "Das Projekt vereint Design, UX und Full-Stack-Logik in einer mobilen Umgebung und nutzt die Stärke und Flexibilität von Flutter für eine flüssige, stimmige Oberfläche.",
+      "cta": "BALD VERFÜGBAR",
+      "alt": "App-Vorschau auf dem Smartphone"
+    },
+    "Skate": {
+      "title": "SKATEBOARD",
+      "p1": "Jedes von mir gestaltete Skateboard ist in erster Linie ein Kunstobjekt, gedacht zum Ausstellen und als besonderer Akzent für Innenräume.",
+      "p2": "Ich fertige dekorative Boards nach Maß – mit frei wählbarer Deckform, Motiven und Finish. Einige Stücke werden direkt in das Holz geschnitten, was volle Individualisierung und authentische Haptik ermöglicht.",
+      "p3": "Mein Ansatz verbindet Design, visuelles Gleichgewicht und Originalität, um Objekte mit eigenständiger Identität zu schaffen.",
+      "p4": "Die klare Ästhetik und maßgeschneiderten Formen liegen an der Schnittstelle von Design und Handwerk – zwischen Dekoobjekt und Bewegungserlebnis.",
+      "cta": "MEHR ANSEHEN",
+      "alt": "Skateboard-Deck"
+    },
+    "Photo": {
+      "title": "FOTO",
+      "cta": "GALERIE",
+      "p1": "Ich bin leidenschaftlich in Tier- und Porträtfotografie, mit Interesse an Landschaften – Ziel ist es, echte, natürliche Momente festzuhalten.",
+      "p2": "Fotografie ist für mich eine Art, vergangene Augenblicke zu bewahren – eine treue Erinnerung an Erlebtes und Beobachtetes.",
+      "p3": "Ob Blick, Licht oder Alltagsszene: Jedes Bild hält einen Moment fest, der mich berührt hat.",
+      "p4": "Meine Arbeit teilt sich in Outdoor-Fotografie – Natur und Fauna – und Porträtfotografie, bei der Ausdruck und Persönlichkeit im Fokus stehen.",
+      "p5": "Ich begleite außerdem gelegentlich Events als Fotograf, lerne neue Kontexte und Menschen kennen und erweitere so meine Praxis durch vielfältige Erfahrungen.",
+      "altBackdrop": "Hintergrundfoto",
+      "altPhoto": "Foto",
+      "altFlying": "Fliegendes Foto"
+    }
+  },"Contact": {
+    "title": "KONTAKT",
+    "headline": { "line1": "Bereit, Ihr nächstes", "line2": "Projekt umzusetzen?" },
+    "intro": "Anfrage, Feedback oder einfach ein Hallo … Hinterlassen Sie mir eine Nachricht und Ihre Kontaktdaten, wenn ich mich melden soll.",
+    "labels": { "name": "Ihr Name", "email": "Ihre E-Mail", "message": "Ihre Nachricht" },
+    "placeholders": {
+      "name": "Philipp August II",
+      "email": "sie@beispiel.de",
+      "message": "Beschreiben Sie Bedarf, Zeitplan, Budget …"
+    },
+    "errors": {
+      "emailRequired": "E-Mail-Adresse wird benötigt.",
+      "emailInvalid": "Ungültiges E-Mail-Format."
+    },
+    "charCount": "Zeichen",
+    "sending": "Senden …",
+    "submit": "Nachricht senden",
+    "success": "Nachricht gesendet. Vielen Dank!",
+    "error": "Ups, Senden fehlgeschlagen. Bitte versuchen Sie es später erneut."
+  },
+  "Footer": {
+    "emailAria": "E-Mail senden",
+    "rights": "Alle Rechte vorbehalten.",
+    "madeWith": "Erstellt mit Next.js"
+  }
+}

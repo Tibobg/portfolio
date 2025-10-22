@@ -1,0 +1,249 @@
+{
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "parcours": "Timeline",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "Header": {
+    "homeAria": "Go to home",
+    "signatureAlt": "Signature",
+    "cvTitle": "Curriculum Vitae",
+    "cvAria": "Open résumé in a new tab",
+    "cvShort": "CV",
+    "cvLong": "Curriculum Vitae",
+    "contact": "Contact me"
+  },
+  "Hero": {
+    "name": "Thibault Cauche",
+    "title": "CHEWLIN",
+    "ctaProjects": "View my projects",
+    "ctaContact": "Contact me"
+  },
+  "About": {
+    "title": "ABOUT",
+    "tagline": "Curious full-stack developer with a designer’s soul, bringing elegant and intuitive interfaces to life"
+  },
+  "Timeline": {
+    "title": "TIMELINE",
+    "proLabel": "Work",
+    "studiesLabel": "Studies",
+    "workEntries": [
+      {
+        "title": "Software Engineer Apprentice",
+        "place": "IMH Niort",
+        "years": "2023 – 2025",
+        "details": [
+          "Built modular applications following a microservices architecture",
+          "Created dashboards to monitor and analyze system performance",
+          "Automated deployments and set up CI/CD pipelines"
+        ]
+      },
+      {
+        "title": "Front-end Developer / Designer Apprentice",
+        "place": "LENRA La Rochelle",
+        "years": "2021 – 2022",
+        "details": [
+          "Designed and developed a full e-commerce website, from mockups to production",
+          "Crafted modern, intuitive interfaces in collaboration with the design team",
+          "Improved UX and launched the final project"
+        ]
+      },
+      {
+        "title": "Fixed-term contract – Network & IT Architecture",
+        "place": "Léa Nature Périgny",
+        "years": "July – August 2021",
+        "details": [
+          "Maintained and improved internal tools in a distributed environment",
+          "Set up technical monitoring and centralized logging",
+          "Automated deployments and supervision with CI/CD pipelines"
+        ]
+      },
+      {
+        "title": "Application Developer Intern",
+        "place": "Léa Nature Périgny",
+        "years": "May – July 2021",
+        "details": [
+          "Enhanced an internal application by designing new pages",
+          "Worked within an experienced engineering team on business features",
+          "First hands-on exposure to microservices and CI/CD tooling"
+        ]
+      }
+    ],
+    "educationEntries": [
+      {
+        "title": "Master’s in Web Development",
+        "place": "Ynov Bordeaux",
+        "years": "2023 – 2025",
+        "details": [
+          "Expertise in web development, software architecture and cloud",
+          "Continuous integration & delivery (CI/CD) and DevOps practices",
+          "Modern apps with clear front/back separation and cloud services"
+        ]
+      },
+      {
+        "title": "M1 – Software Architecture & Information Systems",
+        "place": "3iL Limoges",
+        "years": "2022",
+        "details": [
+          "Advanced software architectures and information systems",
+          "DevOps practices, CI/CD and deployment automation",
+          "UML modeling and project management"
+        ]
+      },
+      {
+        "title": "Bachelor in Software & Web Development",
+        "place": "3iL Limoges",
+        "years": "2021 – 2022",
+        "details": [
+          "Full-stack development and accessible UI design",
+          "Secured APIs and relational databases",
+          "Agile methodologies and version control (Git)"
+        ]
+      },
+      {
+        "title": "Integrated Preparatory Course (Engineering School)",
+        "place": "3iL Limoges",
+        "years": "2018 – 2021",
+        "details": [
+          "Solid foundations in algorithms, C, Java, Python and web",
+          "Networking, OOP and software design",
+          "Projects and internships with strong hands-on practice"
+        ]
+      }
+    ]
+  },
+  "Skills": {
+    "title": "SKILLS",
+    "categories": {
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "tools": "Tools",
+      "other": "Other"
+    },
+    "levels": {
+      "beginner": "beginner",
+      "intermediate": "intermediate",
+      "advanced": "advanced",
+      "expert": "expert"
+    },
+    "ctaGithub": "View my GitHub",
+    "items": {
+      "languages": [
+        { "name": "TypeScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", "level": "advanced" },
+        { "name": "JavaScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", "level": "intermediate" },
+        { "name": "HTML5", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", "level": "advanced" },
+        { "name": "CSS3", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", "level": "advanced" },
+        { "name": "SQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", "level": "intermediate" },
+        { "name": "C#", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", "level": "intermediate" },
+        { "name": "Dart", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg", "level": "advanced" },
+        { "name": "JSON", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg", "level": "intermediate" },
+        { "name": "Bash", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg", "level": "advanced" }
+      ],
+      "frameworks": [
+        { "name": "React", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", "level": "advanced" },
+        { "name": "Next.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", "level": "intermediate" },
+        { "name": "Nest.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", "level": "intermediate" },
+        { "name": "React Native", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", "level": "intermediate" },
+        { "name": "Tailwind CSS", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", "level": "advanced" },
+        { "name": "Flutter", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", "level": "advanced" },
+        { "name": "Prisma", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg", "level": "intermediate" },
+        { "name": "Vite", "level": "advanced" },
+        { "name": "Vue.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", "level": "intermediate" }
+      ],
+      "tools": [
+        { "name": "GitHub", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", "level": "advanced" },
+        { "name": "VS Code", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", "level": "advanced" },
+        { "name": "Docker", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", "level": "intermediate" },
+        { "name": "Postman", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", "level": "intermediate" },
+        { "name": "Figma", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", "level": "advanced" },
+        { "name": "Elasticsearch", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg", "level": "intermediate" },
+        { "name": "Notion", "level": "advanced" },
+        { "name": "Trello", "level": "advanced" },
+        { "name": "Jira", "level": "intermediate" },
+        { "name": "pnpm", "level": "advanced" },
+        { "name": "npm", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg", "level": "advanced" },
+        { "name": "Visual Studio", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg", "level": "intermediate" }
+      ],
+      "other": [
+        { "name": "Agile/Scrum Methodologies", "tag": "agile", "level": "intermediate" },
+        { "name": "UI/UX Design", "tag": "uiux", "level": "advanced" },
+        { "name": "DevOps", "tag": "devops", "level": "intermediate" },
+        { "name": "Software Architecture", "tag": "architecture", "level": "intermediate" },
+        { "name": "Microservices", "tag": "microservices", "level": "intermediate" },
+        { "name": "REST APIs", "tag": "api", "level": "intermediate" },
+        { "name": "CI/CD", "tag": "cicd", "level": "intermediate" },
+        { "name": "Security & Auth", "tag": "security", "level": "advanced" },
+        { "name": "SEO & Accessibility", "tag": "a11y_seo", "level": "advanced" },
+        { "name": "Unit & Automated Tests", "tag": "testing", "level": "advanced" },
+        { "name": "Project Management", "tag": "pm", "level": "advanced" }
+      ]
+    }
+  },
+  "Projects": {
+    "Intro": {
+      "title": "PROJECTS",
+      "p1": "Each project is a new adventure — a playground where I blend engineering, design, and creativity.",
+      "p2": "From web development to object design and visual creation, I explore different ways to bring ideas to life. These projects are a concrete way to learn, grow, and push my limits while nurturing curiosity.",
+      "p3": "Here you’ll find what drives me: from a mobile app for selling and customizing decorative skateboards, to handcrafting my own display decks, and photography including drone video.",
+      "p4": "Each project reflects my vision: create with meaning, learn by doing, and share unique experiences."
+    },
+    "App": {
+      "title": "APPLICATION",
+      "p1": "Built entirely with Flutter, this mobile app offers a simple, aesthetic, and interactive experience for creating and customizing decorative skateboards.",
+      "p2": "Users can create an account, browse my creations, purchase available models, or design their own board by choosing the deck type and the visual they like.",
+      "p3": "It also includes delivery-date selection and direct messaging, enabling personalized contact to follow up or adjust an order.",
+      "p4": "This project blends design, UX and full-stack logic in a mobile environment, leveraging Flutter’s power and flexibility for a smooth and coherent interface.",
+      "cta": "COMING SOON",
+      "alt": "Mobile app preview"
+    },
+    "Skate": {
+      "title": "SKATEBOARD",
+      "p1": "Every skateboard I design is first and foremost an artistic piece meant to be displayed and add a unique touch to an interior.",
+      "p2": "I craft made-to-measure decorative boards where you can choose deck shape, patterns, and finishes. Some pieces are even cut directly into the wood for full customization and an authentic feel.",
+      "p3": "My approach mixes design, visual balance and originality to create objects with a strong identity.",
+      "p4": "Their clean aesthetics and custom shapes sit at the crossroads of design and craftsmanship — between decorative object and movement experience.",
+      "cta": "SEE MORE",
+      "alt": "Skateboard deck"
+    },
+    "Photo": {
+      "title": "PHOTO",
+      "cta": "GALLERY",
+      "p1": "I’m passionate about wildlife and portrait photography, with an interest in landscapes, aiming to capture genuine and natural moments.",
+      "p2": "Photography helps me keep a trace of past moments, a faithful memory of what I lived or observed.",
+      "p3": "Whether a gaze, a light, or a scene from daily life, each image freezes a moment that struck me.",
+      "p4": "I divide my work between outdoor shoots exploring nature and wildlife, and portrait sessions highlighting expression and personality.",
+      "p5": "I also cover some events as a photographer, discovering new contexts and people while enriching my practice through varied experiences.",
+      "altBackdrop": "Backdrop photo",
+      "altPhoto": "Photo",
+      "altFlying": "Flying photo"
+    }
+  },
+  "Contact": {
+    "title": "CONTACT",
+    "headline": { "line1": "Ready to build", "line2": "your next project?" },
+    "intro": "Inquiry, testimonial or just a hello… Leave me a message and your details if you’d like me to get back to you.",
+    "labels": { "name": "Your name", "email": "Your email", "message": "Your message" },
+    "placeholders": {
+      "name": "Philip Augustus II",
+      "email": "you@example.com",
+      "message": "Describe your needs, timeline, budget…"
+    },
+    "errors": {
+      "emailRequired": "Email address is required.",
+      "emailInvalid": "Invalid email address format."
+    },
+    "charCount": "characters",
+    "sending": "Sending...",
+    "submit": "Send message",
+    "success": "Message sent. Thank you!",
+    "error": "Oops, sending failed. Please try again shortly."
+  },
+  "Footer": {
+    "emailAria": "Send an email",
+    "rights": "All rights reserved.",
+    "madeWith": "Built with Next.js, Tailwind & Framer Motion"
+  }
+}
