@@ -1,8 +1,5 @@
-import "../styles/globals.css";
-import "../styles/cv-button.css";
 import type { Metadata } from "next";
 import Nav from "@/components/nav";
-import { ThemeProvider } from "@/components/theme-provider";
 import GlobalBlobs from "@/components/GlobalBlobs";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
@@ -16,8 +13,17 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "CAUCHE Thibault",
-  description: "Présentation, projets, compétences.",
+  title: "Thibault Cauche — Développeur Full-Stack & Designer",
+  description: "Portfolio de Thibault Cauche : développeur full-stack, UI/UX designer. Projets React, Flutter, Next.js.",
+  openGraph: {
+    title: "Thibault Cauche — Développeur Full-Stack & Designer",
+    description: "Portfolio de Thibault Cauche : développeur full-stack, UI/UX designer.",
+    url: "https://www.thibaultcauche.com",
+    siteName: "Thibault Cauche",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "Thibault Cauche", description: "Portfolio de Thibault Cauche" },
 };
 
 export default async function RootLayout({
@@ -46,10 +52,8 @@ export default async function RootLayout({
         />
 
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <Nav />
             {children}
-          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
