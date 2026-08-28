@@ -12,7 +12,7 @@ import Link from "next/link";
 const items = [
   { href: "#home", key: "home", icon: Home },
   { href: "#about", key: "about", icon: User },
-  { href: "#timeline", key: "parcours", icon: GraduationCap }, // ou "journey"
+  { href: "#parcours", key: "parcours", icon: GraduationCap },
   { href: "#skills", key: "skills", icon: Code2 },
   { href: "#projects", key: "projects", icon: Rocket },
   { href: "#contact", key: "contact", icon: Send },
