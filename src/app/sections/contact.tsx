@@ -13,7 +13,6 @@ export default function ContactSection() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
-  const [hp, setHp] = React.useState(""); // honey pot
   const [loading, setLoading] = React.useState(false);
   const [status, setStatus] = React.useState<"idle" | "ok" | "error">("idle");
   const [emailError, setEmailError] = React.useState("");
@@ -36,36 +35,30 @@ export default function ContactSection() {
   }
 
   async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("idle");
-    const err = validateEmail(email);
-    if (err) {
-      setEmailError(err);
-      return;
-    }
-    setLoading(true);
-    setEmailError("");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, hp }),
-      });
-      const data = await res.json();
-      if (res.ok && data.ok) {
-        setStatus("ok");
-        setMessage("");
-        // Si tu veux aussi reset:
-        // setName(""); setEmail("");
-      } else {
-        setStatus("error");
-      }
-    } catch {
+  e.preventDefault();
+  setStatus("idle");
+  const err = validateEmail(email);
+  if (err) { setEmailError(err); return; }
+  setLoading(true);
+  setEmailError("");
+  try {
+    const res = await fetch("https://formspree.io/f/xqpkkowj", {
+      method: "POST",
+      headers: { "Accept": "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+    if (res.ok) {
+      setStatus("ok");
+      setMessage(""); setName(""); setEmail("");
+    } else {
       setStatus("error");
-    } finally {
-      setLoading(false);
     }
+  } catch {
+    setStatus("error");
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <section id="contact" className={`relative overflow-hidden ${isMedium ? "py-60" : "py-30"}`}>
@@ -83,16 +76,6 @@ export default function ContactSection() {
 
         <GlassBlock variant="base" className="mt-10 p-6 md:p-8">
           <form onSubmit={onSubmit} className="grid gap-4 md:gap-5">
-            {/* Honey pot */}
-            <input
-              type="text"
-              value={hp}
-              onChange={(e) => setHp(e.target.value)}
-              className="hidden"
-              tabIndex={-1}
-              autoComplete="off"
-            />
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Nom */}
               <label className="grid gap-1">
