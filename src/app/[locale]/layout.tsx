@@ -1,3 +1,5 @@
+import "../styles/globals.css";
+import "../styles/cv-button.css";
 import type { Metadata } from "next";
 import Nav from "@/components/nav";
 import GlobalBlobs from "@/components/GlobalBlobs";
