@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Section from "@/components/section";
 import GlassBlock from "@/components/GlassBlock";
 import { useTranslations } from "next-intl";
+import Skateboard3D from "@/components/three/Skateboard3D";
 
 export default function SkateboardSection() {
   const t = useTranslations("Projects.Skate");
@@ -46,28 +47,10 @@ export default function SkateboardSection() {
             </Link>
           </GlassBlock>
 
-          {/* Droite : visuel */}
-          <GlassBlock className="flex items-center justify-center">
-            <div className={`relative w-full flex items-center justify-center transition-all duration-500 ${isMobile ? "h-[220px]" : "h-[600px] lg:h-[680px]"}`}>
-              <Image
-                src="/skateboards/image.png"
-                alt={t("alt")}
-                width={160}
-                height={100}
-                className={`object-contain select-none pointer-events-none
-                            w-full h-auto origin-center transition-transform duration-500
-                            ${
-                              isMobile
-                                ? isTinyMobile
-                                  ? "rotate-90 max-h-[300px]"
-                                  : isSmallMobile
-                                  ? "rotate-90 max-h-[400px]"
-                                  : "rotate-90 max-h-[600px]"
-                                : "rotate-0 max-h-[90%]"
-                            }
-                            drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]`}
-                priority
-              />
+                    {/* Droite : visuel 3D */}
+          <GlassBlock className="flex items-center justify-center overflow-hidden">
+            <div className={`relative w-full transition-all duration-500 ${isMobile ? "h-[280px]" : "h-[600px] lg:h-[680px]"}`}>
+              <Skateboard3D />
             </div>
           </GlassBlock>
         </div>
