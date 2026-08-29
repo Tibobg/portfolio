@@ -74,12 +74,14 @@ function SkateboardModel({
 
   useEffect(() => {
     if (!activeTexture) return;
-    model.traverse((child: any) => {
-      if (child.isMesh && child.name === "DeckBottom") {
-        const newMat = child.material.clone();
+    model.traverse((child: THREE.Object3D) => {
+      const mesh = child as THREE.Mesh;
+      if (mesh.isMesh && mesh.name === "DeckBottom") {
+        const mat = mesh.material as THREE.MeshStandardMaterial;
+        const newMat = mat.clone();
         newMat.map = activeTexture;
         newMat.needsUpdate = true;
-        child.material = newMat;
+        mesh.material = newMat;
       }
     });
   }, [activeTexture, model]);
