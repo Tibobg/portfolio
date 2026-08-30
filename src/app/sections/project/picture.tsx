@@ -80,6 +80,8 @@ function PhotoPile({ photos, className = "" }: { photos: string[]; className?: s
   );
 
   const onArrive = (f: FlyingPhoto) => {
+    if (arrivedRef.current.has(f.id)) return;
+    arrivedRef.current.add(f.id);
     setPiled((curr) => {
       const z = (curr.at(-1)?.z ?? 0) + 1;
       return [...curr, { id: uid("pile"), url: f.url, rot: f.trot, x: f.tx - POLAROID_W / 2 - center.x, y: f.ty - center.y, z }].slice(-36);
@@ -165,9 +167,8 @@ function PhotoPile({ photos, className = "" }: { photos: string[]; className?: s
                   exit={{ opacity: 0, transition: { duration: 0 } }}
                   transition={{ type: "spring", stiffness: 110, damping: 18, mass: 0.8 }}
                   onAnimationComplete={() => {
-                    arrivedRef.current.add(f.id);
                     onArrive(f);
-                    requestAnimationFrame(() => setFlying((curr) => curr.filter((x) => x.id !== f.id)));
+                    setFlying((curr) => curr.filter((x) => x.id !== f.id));
                   }}
                   style={{ zIndex: 999 }}
                 >
@@ -184,27 +185,11 @@ function PhotoPile({ photos, className = "" }: { photos: string[]; className?: s
 
 export default function PhotoSection() {
   const t = useTranslations("Projects.Photo");
-  const [vw, setVw] = useState(0);
-  useEffect(() => {
-    const onResize = () => setVw(window.innerWidth);
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-  const mtMobilePx = useMemo(() => {
-    if (vw === 0 || vw >= 1024) return undefined;
-    const table: Array<[number, number]> = [
-      [336, -370],[375, -340],[416, -310],[470, -290],[557, -270],
-      [676, -240],[768, -220],[881, -280],[1024, -250],
-    ];
-    for (const [bp, mt] of table) if (vw < bp) return mt;
-    return undefined;
-  }, [vw]);
 
   return (
-    <>
-      <div className="items-stretch px-4">
-        <GlassBlock className="mt-12 md:mt-20 p-3 md:p-5 flex flex-col items-stretch gap-4">
+    <div className="items-stretch px-4">
+      <div className="relative">
+        <GlassBlock className="mt-12 md:mt-20 p-3 md:p-5 flex flex-col items-stretch gap-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">{t("title")}</h2>
           <Link href="https://flic.kr/s/aHBqjCyfCd" target="_blank" className="mt-auto self-center pt-3">
             <button className="btn-cv btn-cv--sweep"><span>{t("cta")}</span></button>
@@ -215,10 +200,13 @@ export default function PhotoSection() {
           <p className="mt-2 text-foreground/80 leading-relaxed">{t("p4")}</p>
           <p className="mt-4 text-foreground/80 leading-relaxed">{t("p5")}</p>
         </GlassBlock>
+
+        <div className="absolute left-1/2 -translate-x-1/2 top-[60%] md:top-[50%] w-screen z-20">
+          <PhotoPile photos={PHOTO_URLS} />
+        </div>
       </div>
-      <div style={mtMobilePx !== undefined ? { marginTop: `${mtMobilePx}px` } : undefined}>
-        <PhotoPile photos={PHOTO_URLS} className="md:-mt-56 lg:-mt-64 z-20" />
-      </div>
-    </>
+
+      <div className="h-[46vw] min-h-[220px] max-h-[380px] md:h-[32vw] md:min-h-[260px] md:max-h-[440px]" />
+    </div>
   );
 }
