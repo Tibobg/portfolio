@@ -1,15 +1,17 @@
+import dynamic from "next/dynamic";
 import Section from "@/components/section";
 import ScrollDots from "@/components/scroll-dots";
 import Hero from "@/app/sections/hero";
 import About from "@/app/sections/about";
-import Projects from "@/app/sections/project/project";
-import Skills from "@/app/sections/skills";
-import Contact from "@/app/sections/contact";
 import HeaderOverlay from "@/components/HeaderOverlay";
-import Parcours from "@/app/sections/parcours";
 import CurvedLoop from "@/components/CurvedLoop";
 import GradualBlurOverlay from "@/components/GradualBlurOverlay";
 import Footer from "@/app/sections/footer";
+
+const Parcours = dynamic(() => import("@/app/sections/parcours"), { ssr: false });
+const Skills = dynamic(() => import("@/app/sections/skills"), { ssr: false });
+const Projects = dynamic(() => import("@/app/sections/project/project"), { ssr: false });
+const Contact = dynamic(() => import("@/app/sections/contact"), { ssr: false });
 
 export default function HomePage() {
   return (

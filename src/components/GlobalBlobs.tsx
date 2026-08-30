@@ -31,13 +31,12 @@ export default function GlobalBlobs({
             width: b.w ?? "70vmax",
             height: b.h ?? b.w ?? "70vmax",
             transform: "translate(-50%,-50%)",
-            // 70% -> 60% pour un coeur lumineux plus dense
             background: `radial-gradient(circle at center, ${b.color ?? "#8b5cf6"} 0%, transparent 60%)`,
-            // blur plus faible -> halo plus net
             filter: `blur(${b.blur ?? "80px"})`,
-            // + d’opacité par défaut
             opacity: b.opacity ?? 0.32,
             animation: `gb-breathe ${b.speed ?? "20s"} ease-in-out infinite`,
+            willChange: "transform, opacity",
+            contain: "layout style paint",
           }}
         />
       ))}

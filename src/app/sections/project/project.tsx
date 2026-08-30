@@ -1,12 +1,13 @@
 "use client";
-import PhotoSection from "./picture";
 import MaquettesSection from "./application";
 import SkateboardsSection from "./skateboard";
 import GlassBlock from "@/components/GlassBlock";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 
 export default function Projects() {
   const t = useTranslations("Projects.Intro");
+  const PhotoSection = dynamic(() => import("./picture"), { ssr: false });
 
   return (
     <section id="projects" className="font-amiko relative z-0">
