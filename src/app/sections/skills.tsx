@@ -134,7 +134,7 @@ function SkillCard({ skill, levelLabels }: { skill: Skill; levelLabels: Record<L
         {/* TEXT */}
         <div className="min-w-0 max-w-[11rem]">
           <div className="font-semibold text-white leading-tight">
-            <SkillName text={skill.name} max={18} min={11} />
+            <SkillName text={skill.name} />
           </div>
           {skill.level && (
             <p className="text-xs text-white/60 mt-0.5 capitalize">
