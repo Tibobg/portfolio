@@ -8,10 +8,10 @@ import CurvedLoop from "@/components/CurvedLoop";
 import GradualBlurOverlay from "@/components/GradualBlurOverlay";
 import Footer from "@/app/sections/footer";
 
-const Parcours = dynamic(() => import("@/app/sections/parcours"), { ssr: false });
-const Skills = dynamic(() => import("@/app/sections/skills"), { ssr: false });
-const Projects = dynamic(() => import("@/app/sections/project/project"), { ssr: false });
-const Contact = dynamic(() => import("@/app/sections/contact"), { ssr: false });
+const Parcours = dynamic(() => import("@/app/sections/parcours"));
+const Skills = dynamic(() => import("@/app/sections/skills"));
+const Projects = dynamic(() => import("@/app/sections/project/project"));
+const Contact = dynamic(() => import("@/app/sections/contact"));
 
 export default function HomePage() {
   return (
