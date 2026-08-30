@@ -70,7 +70,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
     if (!spacing) return;
     if (textPathRef.current) {
       const initial = -(spacing - 1);
-      textPathRef.current.setAttribute('startOffset', initial + 'px');
+      textPathRef.current.style.transform;
       setOffset(initial);
     }
   }, [spacing]);
@@ -142,7 +142,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
     const nextPos = wrap(currentPos - dx, spacing);  // -dx car startOffset est négatif
 
     offsetRef.current = nextPos;
-    textPathRef.current.setAttribute('startOffset', -nextPos + 'px');
+    textPathRef.current.style.transform = `translateX(${-nextPos}px)`;
   };
 
   const endDrag = () => {

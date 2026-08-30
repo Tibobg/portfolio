@@ -83,18 +83,15 @@ export default function Nav() {
                 <li key={it.href}>
                   <Link
                     href={it.href}
+                    aria-label={t(it.key)}
                     className={clsx(
                       "rounded-full hover:bg-white/20 transition flex items-center justify-center",
-                      "h-[44px] w-[44px] p-0 min-[1220px]:h-auto min-[1220px]:w-auto min-[1220px]:px-3 min-[1220px]:py-1.5",
-                      "max-[359px]:h-[36px] max-[359px]:w-[36px]"
+                      "h-[48px] w-[48px] p-0 min-[1220px]:h-auto min-[1220px]:w-auto min-[1220px]:px-3 min-[1220px]:py-1.5"
                     )}
-                    title={t(it.key)}
                   >
-                    {/* <1220px: icône */}
-                    <span className="min-[1220px]:hidden">
-                      <it.icon className="h-5 w-5 text-white max-[359px]:h-4 max-[359px]:w-4" strokeWidth={2} />
+                    <span className="min-[1220px]:hidden" aria-hidden="true">
+                      <it.icon className="h-5 w-5 text-white" strokeWidth={2} />
                     </span>
-                    {/* ≥1220px: label */}
                     <span className="hidden min-[1220px]:inline">{t(it.key)}</span>
                   </Link>
                 </li>
@@ -134,10 +131,10 @@ export default function Nav() {
                 >
                   <Link
                     href={it.href}
+                    aria-label={t(it.key)}
                     className="group flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/20 text-white"
-                    title={t(it.key)}
                   >
-                    <it.icon className="h-5 w-5 text-white" strokeWidth={2} />
+                    <it.icon className="h-5 w-5 text-white" strokeWidth={2} aria-hidden="true" />
                   </Link>
                 </motion.li>
               ))}

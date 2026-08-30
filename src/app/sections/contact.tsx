@@ -78,9 +78,11 @@ export default function ContactSection() {
           <form onSubmit={onSubmit} className="grid gap-4 md:gap-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Nom */}
-              <label className="grid gap-1">
+              <label htmlFor="contact-name" className="grid gap-1">
                 <span className="text-xs text-white/70">{t("labels.name")}</span>
                 <input
+                  id="contact-name"
+                  name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t("placeholders.name")}
@@ -89,7 +91,7 @@ export default function ContactSection() {
               </label>
 
               {/* Email */}
-              <label className="grid gap-1">
+              <label htmlFor="contact-email" className="grid gap-1">
                 <div className="flex items-center justify-between h-5">
                   <span className="text-xs text-white/70">{t("labels.email")}</span>
                   <span
@@ -102,6 +104,8 @@ export default function ContactSection() {
                 </div>
 
                 <input
+                  id="contact-email"
+                  name="email"
                   type="email"
                   value={email}
                   onChange={(e) => {
@@ -127,9 +131,11 @@ export default function ContactSection() {
             </div>
 
             {/* Message */}
-            <label className="grid gap-1">
+            <label htmlFor="contact-message" className="grid gap-1">
               <span className="text-xs text-white/70">{t("labels.message")}</span>
               <textarea
+                id="contact-message"
+                name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder={t("placeholders.message")}

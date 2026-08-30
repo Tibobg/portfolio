@@ -9,8 +9,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/webp'],
+    unoptimized: true,
   },
   compress: true,
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
+  },
 };
 
 export default withNextIntl(nextConfig);

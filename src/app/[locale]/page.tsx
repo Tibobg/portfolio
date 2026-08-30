@@ -7,6 +7,12 @@ import HeaderOverlay from "@/components/HeaderOverlay";
 import CurvedLoop from "@/components/CurvedLoop";
 import GradualBlurOverlay from "@/components/GradualBlurOverlay";
 import Footer from "@/app/sections/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Thibault Cauche — Développeur Full-Stack & Designer",
+  description: "Portfolio de Thibault Cauche : développeur full-stack, UI/UX designer. Projets React, Flutter, Next.js.",
+};
 
 const Parcours = dynamic(() => import("@/app/sections/parcours"));
 const Skills = dynamic(() => import("@/app/sections/skills"));

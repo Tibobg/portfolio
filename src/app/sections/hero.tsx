@@ -2,7 +2,8 @@
 "use client";
 
 import LiquidGlass from "@/components/GlassBlock";
-import Balatro from "@/components/backgrounds/Balatro";
+import dynamic from "next/dynamic";
+const Balatro = dynamic(() => import("@/components/backgrounds/Balatro"), { ssr: false });
 import { useTranslations } from "next-intl";
 
 export default function Hero() {
