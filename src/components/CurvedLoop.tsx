@@ -54,7 +54,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   const totalText = useMemo(() => {
   if (!spacing || !pathLength) return text;
-    const repeats = Math.ceil(pathLength / spacing) + 8;
+    const repeats = Math.ceil(pathLength / spacing) + 2;
     return Array(repeats).fill(text).join('');
   }, [text, spacing, pathLength]);
 
@@ -110,7 +110,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
         // startOffset attendu par <textPath> est négatif
         const start = -offsetRef.current;
-        textPathRef.current.setAttribute("startOffset", start + "px");
+        textPathRef.current.style.transform = `translateX(${start}px)`;
       }
 
       raf = requestAnimationFrame(tick);

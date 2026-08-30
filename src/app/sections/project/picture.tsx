@@ -43,7 +43,7 @@ function PhotoPile({ photos, className = "" }: { photos: string[]; className?: s
   const isMobile = vw < 768;
   const POLAROID_W = isMobile ? 140 : 220;
   const BACKDROP_W = isMobile ? 120 : 180;
-  const BACKDROP_COUNT = isMobile ? 18 : 30;
+  const BACKDROP_COUNT = isMobile ? 12 : 20;
 
   useLayoutEffect(() => {
     const onResize = () => { 

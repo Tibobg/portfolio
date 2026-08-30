@@ -182,54 +182,6 @@ function renderSkillIcon(skill: Skill) {
   return <span className="text-white/70 text-sm font-medium">{skill.name[0]}</span>;
 }
 
-function SkillName({ text, max = 18, min = 11, step = 0.5, className = "" }: { text: string; max?: number; min?: number; step?: number; className?: string; }) {
-  const ref = React.useRef<HTMLSpanElement>(null);
-  const words = text.trim().split(/\s+/);
-  const count = words.length;
-
-  const fit = React.useCallback(() => {
-    const el = ref.current;
-    if (!el) return;
-    let size = max;
-    el.style.fontSize = `${size}px`;
-    el.style.lineHeight = "1.15";
-    el.style.whiteSpace = count === 1 ? "nowrap" : "normal";
-    const parent = el.parentElement as HTMLElement | null;
-    const limitW = parent?.clientWidth ?? el.clientWidth;
-    const getLineCount = () => {
-      const lh = parseFloat(getComputedStyle(el).lineHeight || "0") || 0;
-      return lh ? Math.round(el.scrollHeight / lh) : 1;
-    };
-    let guard = 100;
-    while (size > min && (el.scrollWidth > limitW || (count > 1 && getLineCount() > 2)) && guard-- > 0) {
-      size -= step;
-      el.style.fontSize = `${size}px`;
-    }
-  }, [max, min, step, count]);
-
-  React.useEffect(() => {
-    fit();
-    const ro = new ResizeObserver(fit);
-    const parent = ref.current?.parentElement;
-    if (parent) ro.observe(parent);
-    return () => ro.disconnect();
-  }, [fit, text]);
-
-  if (count === 1) {
-    return <span ref={ref} className={className} style={{ display: "block" }}>{text}</span>;
-  }
-  if (count === 2) {
-    return (
-      <span ref={ref} className={className} style={{ display: "inline-block", whiteSpace: "normal" }}>
-        {words[0]}<wbr /> {words[1]}
-      </span>
-    );
-  }
-  const grouped = words.slice(0, -1).join("\u00A0");
-  const last = words[words.length - 1];
-  return (
-    <span ref={ref} className={className} style={{ display: "inline-block", whiteSpace: "normal" }}>
-      {grouped}<wbr /> {last}
-    </span>
-  );
+function SkillName({ text, className = "" }: { text: string; className?: string }) {
+  return <span className={`text-sm md:text-base ${className}`}>{text}</span>;
 }

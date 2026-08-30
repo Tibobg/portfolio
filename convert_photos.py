@@ -1,39 +1,25 @@
 from PIL import Image
-import os, json, glob
+import os, glob, json
 
 DIR = "public/photos"
 
-files = sorted(
-    glob.glob(os.path.join(DIR, "*.jpg")) +
-    glob.glob(os.path.join(DIR, "*.JPG")) +
-    glob.glob(os.path.join(DIR, "*.jpeg")) +
-    glob.glob(os.path.join(DIR, "*.JPEG")) +
-    glob.glob(os.path.join(DIR, "*.png")) +
-    glob.glob(os.path.join(DIR, "*.PNG"))
-)
-
-new_manifest = []
-for path in files:
-    fname = os.path.basename(path)
-    base = os.path.splitext(fname)[0]
-    out_name = base + ".webp"
-    out_path = os.path.join(DIR, out_name)
-    
+for path in glob.glob(os.path.join(DIR, "*.jpg")) + glob.glob(os.path.join(DIR, "*.JPG")):
     img = Image.open(path)
-    if img.mode in ("RGBA", "P"):
-        img = img.convert("RGB")
+    
+    # Applique l'orientation EXIF
+    if hasattr(img, '_getexif') and img._getexif():
+        exif = img._getexif()
+        orientation = exif.get(274)
+        if orientation == 3: img = img.rotate(180, expand=True)
+        elif orientation == 6: img = img.rotate(270, expand=True)
+        elif orientation == 8: img = img.rotate(90, expand=True)
+    
+    base = os.path.splitext(os.path.basename(path))[0]
+    out = os.path.join(DIR, base + ".webp")
     
     if img.width > 800:
         ratio = 800 / img.width
-        new_h = int(img.height * ratio)
-        img = img.resize((800, new_h), Image.LANCZOS)
+        img = img.resize((800, int(img.height * ratio)), Image.LANCZOS)
     
-    img.save(out_path, "webp", quality=80, method=6)
-    new_manifest.append(out_name)
-    print(f"Converted: {fname} -> {out_name} ({img.width}x{img.height})")
-
-manifest_path = os.path.join(DIR, "manifest.json")
-with open(manifest_path, "w", encoding="utf-8") as f:
-    json.dump(new_manifest, f, indent=2)
-
-print(f"\nDone! {len(new_manifest)} images converted. manifest.json updated.")
+    img.save(out, "webp", quality=80, method=6)
+    print(f"Converted: {os.path.basename(path)}")
